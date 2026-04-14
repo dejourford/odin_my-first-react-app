@@ -1,16 +1,17 @@
 import { Button } from "./Button"
 
+
 function App() {
-
-
-  const handleButtonClick = (url) => {
-    window.location.href = url;
-  }
+   const animals = ["Lion", "Cow", "Snake", "Lizard"];
+  const animalsList = animals.map((animal) => <li key={animal}>{animal}</li>)
 
   return (
     <>
-      <Button handleClick={() => handleButtonClick('https://www.google.com')} />
-      <Button handleClick={() => handleButtonClick('https://www.theodinproject.com')} />
+      <h1>Animals:</h1>
+      <ul>
+      {animalsList}
+
+      </ul>
     </>
   )
 }
