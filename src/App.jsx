@@ -1,34 +1,22 @@
+import { useState } from "react";
 import { Button } from "./Button"
 
-function List(props) {
- 
-  if (!props.animals) {
-    return <div>Loading...</div>
-  }
-
-  if (props.animals.length === 0) {
-    return <div>There are no animals in the list!</div>
-  }
- 
-  return (
-    <ul>
-      {props.animals.map((animal) => {
-        return <li key={animal}> {animal}</li>;
-      })}
-    </ul>
-  )
-}
-
-
-
 function App() {
-   const animals = [];
+   const colors = ["pink", "red", "blue", "green", "orange"];
+  const [backgroundColor, setBackgroundColor] = useState(colors[0]);
+
+  const handleClick = (color) => {
+    setBackgroundColor(color);
+  }
 
   return (
-    <>
-      <h1>Animals:</h1>
-      <List />
-    </>
+    <div style={{backgroundColor}}>
+      {colors.map((color, index) => 
+        <button key={index} onClick={() => handleClick(color)}>{color}</button>
+      )}
+      
+      
+    </div>
   )
 }
 
