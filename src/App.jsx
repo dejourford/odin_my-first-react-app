@@ -1,20 +1,26 @@
 import { useState } from "react";
 import { Button } from "./Button"
+import { Person } from "./Person";
+import { Input } from "./Input";
 
 function App() {
-   const [person, setPerson] = useState({name: "John", age: 100})
-
-  const handleClick = () => {
-    setPerson((prevPerson) => ({...prevPerson, age: prevPerson.age + 1}))
-  }
-
-  
+   
+const [firstName, setfirstName] = useState("");
+const [lastName, setLastName] = useState("");  
 
   return (
     <>
-    <h1>{person.name}</h1>
-    <h2>{person.age}</h2>
-    <button onClick={handleClick}>Increase Age</button>
+    <p>{firstName} {lastName}</p>
+    <Input
+     value={firstName} 
+     onChange={(e) => setfirstName(e.target.value)}
+     placeholder="first name"
+     />
+    <input
+     value={lastName} 
+     onChange={(e) => setLastName(e.target.value)}
+     placeholder="last name"
+     />
     </>
   )
 }
