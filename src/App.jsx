@@ -8,15 +8,15 @@ function App() {
 
   const handleClick = (color) => {
     setBackgroundColor(color);
-    setNumber(number + 1)
+    setNumber(prev => prev + 1)
   }
 
   
 
   return (
     <section style={{backgroundColor}}>
-      {colors.map((color, index) => 
-        <button key={index} onClick={() => handleClick(color)}>{color}</button>
+      {colors.map((color) => 
+        <button key={color} onClick={() => handleClick(color)}>{color}</button>
       )}
       
       <div style={{border: "1px solid black"}} className="tracker">{number}</div>
