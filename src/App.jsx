@@ -5,8 +5,7 @@ function App() {
    const [person, setPerson] = useState({name: "John", age: 100})
 
   const handleClick = () => {
-    const newPerson = {...person, age: person.age + 1}
-    setPerson(newPerson)
+    setPerson((prevPerson) => ({...prevPerson, age: prevPerson.age + 1}))
   }
 
   
